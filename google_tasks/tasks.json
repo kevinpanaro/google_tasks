@@ -1,0 +1,22 @@
+{
+  "Home": [
+    {
+      "Laundry": [
+        "Mon",
+        "Thu"
+      ],
+      "Lawn": [
+        "Sun"
+      ],
+      "Dishes": [
+        "Mon",
+        "Wed",
+        "Fri",
+        "Sun"
+      ],
+      "Vacuum": [
+        "Sat"
+      ]
+    }
+  ]
+}
