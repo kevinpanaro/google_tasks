@@ -25,7 +25,7 @@ class GoogleTasksWrapper(object):
         self._update_token()
         self._obtain_current_lists()
 
-    def add(self, tasklist, task, force=False):
+    def add(self, tasklist, task, force=False, **kwargs):
         """
         adds an item to the task list
 
@@ -33,7 +33,7 @@ class GoogleTasksWrapper(object):
         :param task: the todo task name
         """
         tasklist = self._get_tasklist_id(tasklist=tasklist, force=force)
-        task = self._format_task_body(task=task)
+        task = self._format_task_body(task=task, **kwargs)
 
         self.service.tasks().insert(tasklist=tasklist, body=task).execute()
 
@@ -45,7 +45,7 @@ class GoogleTasksWrapper(object):
 
     def _update_token(self):
         """
-        updates the token file
+        updates the token file and creates the service
         """
         store = file.Storage(self.token)
         creds = store.get()
