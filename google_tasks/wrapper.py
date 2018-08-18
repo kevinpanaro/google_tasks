@@ -177,10 +177,3 @@ class GoogleTasksWrapper(object):
 
     class NoSuchTaskList(Exception):
         pass
-
-
-
-
-
-tasks = GoogleTasksWrapper()
-tasks.add(tasklist="Work", task="Finish such and such", force=True)
