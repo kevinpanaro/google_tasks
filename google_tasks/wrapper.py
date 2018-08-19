@@ -3,6 +3,7 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 from datetime import datetime
 
+
 class GoogleTasksWrapper(object):
     def __init__(self, scopes="https://www.googleapis.com/auth/tasks",
                  credentials="credentials.json", token="token.json",
@@ -67,8 +68,8 @@ class GoogleTasksWrapper(object):
 
         Example Output:
             {
-              "status": "A String", # Status of the task. This is either "needsAction" or "completed".
-              "kind": "tasks#task", # Type of the resource. This is always "tasks#task".
+              "status": "A String", # Status of the task. "needsAction" or "completed"
+              "kind": "tasks#task", # Type of the resource. "tasks#task".
               "updated": "A String", # Last modification time of the task (as a RFC 3339 timestamp).
               "parent": "A String", # Parent task identifier. This field is omitted if it is a top-level task. This field is read-only. Use the "move" method to move the task under a different parent or to the top level.
               "links": [ # Collection of links. This collection is read-only.
@@ -138,7 +139,7 @@ class GoogleTasksWrapper(object):
                 self._obtain_current_lists()
                 return(self._get_tasklist_id(tasklist))
             else:
-                raise self.NoSuchTaskList(f"\"{tasklist}\" does not exist.")
+                raise NoSuchTaskList(f"\"{tasklist}\" does not exist.")
 
     def _create_tasklist(self, tasklist):
         """
@@ -175,5 +176,5 @@ class GoogleTasksWrapper(object):
                   }
         return(output)
 
-    class NoSuchTaskList(Exception):
-        pass
+class NoSuchTaskList(Exception):
+    pass
