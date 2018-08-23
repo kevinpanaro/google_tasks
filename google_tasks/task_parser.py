@@ -16,7 +16,7 @@ class TaskParser(object):
         self.todo_list = []
         self._parse_file()
 
-    def __call__(self):
+    def get_tasks(self):
         """
         When the class is called immediately, and
         returns the todo_list
