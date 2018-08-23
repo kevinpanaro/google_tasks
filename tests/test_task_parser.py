@@ -14,7 +14,7 @@ class TestTaskParser(unittest.TestCase):
         self.TP = google_tasks.task_parser.TaskParser
 
     def test_good_task(self):
-        self.assertIsInstance(self.TP(self.good_task)(), list)
+        self.assertIsInstance(self.TP(self.good_task).get_tasks(), list)
 
     def test_bad_task(self):
         with self.assertRaises(google_tasks.task_parser.UnexpectedDayName):
